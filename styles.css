@@ -1,0 +1,99 @@
+.gradient-jtc {
+    background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+}
+
+.project-tab.active {
+    background-color: #f58220;
+    color: white;
+}
+
+@keyframes energySurge {
+    0% {
+        text-shadow: 0 0 0px transparent;
+        color: white;
+        transform: scale(1);
+    }
+    40% {
+        text-shadow: -30px 0 40px #f58220, 30px 0 40px #f58220, 0 0 60px #ff9d47, 0 0 80px #fff;
+        color: #ffffff;
+        transform: scale(1.3);
+    }
+    100% {
+        text-shadow: 0 0 15px #f58220, 0 0 25px #f58220;
+        color: #ffffff;
+        transform: scale(1.1);
+    }
+}
+
+.social-sidebar {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    background-color: transparent;
+    padding: 15px 0;
+}
+
+/* Efecto sable de luz (líneas arriba y abajo) */
+.social-sidebar::before,
+.social-sidebar::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 0;
+    background-color: transparent;
+    transition: height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s, box-shadow 0.3s;
+    border-radius: 5px;
+}
+
+.social-sidebar::before {
+    bottom: 100%;
+}
+
+.social-sidebar::after {
+    top: 100%;
+}
+
+/* Activación del sable láser al hacer hover en el contenedor */
+.social-sidebar:hover::before,
+.social-sidebar:hover::after {
+    height: 150px;
+    background-color: #fff;
+    box-shadow: 0 0 10px #f58220, 0 0 20px #f58220, 0 0 30px #f58220, 0 0 50px #ff9d47;
+}
+
+/* Iconos de la barra lateral por defecto */
+.social-sidebar a {
+    color: white;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* Activando la animación de energía intermitente que se expande sobre los íconos */
+.social-sidebar:hover a {
+    animation: energySurge 1.2s forwards;
+}
+
+/* Pequeño efecto individual extra por si el mouse pasa por un ícono en específico */
+.social-sidebar:hover a:hover {
+    color: #1a1a1a;
+    background-color: #f58220;
+    box-shadow: 0 0 20px #f58220, 0 0 40px #f58220;
+    text-shadow: none;
+    transform: scale(1.25);
+}
