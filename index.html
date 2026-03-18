@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTC Services - Soluciones Integrales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jtcOrange: '#f58220',
+                        jtcDark: '#1a1a1a',
+                        jtcGray: '#333333',
+                        jtcSilver: '#e5e7eb'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-jtc {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+        }
+
+        .project-tab.active {
+            background-color: #f58220;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 font-sans text-gray-800">
+
+    <nav class="sticky top-0 z-50 bg-jtcDark text-white shadow-lg border-b-2 border-jtcOrange">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="images/logo-jtcservice.png" alt="JTC Logo" class="h-12">
+            </div>
+            <div class="hidden md:flex space-x-8 font-semibold uppercase text-sm">
+                <a href="#inicio" class="hover:text-jtcOrange transition">Inicio</a>
+                <a href="#proyectos" class="hover:text-jtcOrange transition">Proyectos</a>
+                <a href="#contacto" class="hover:text-jtcOrange transition">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="inicio" class="gradient-jtc text-white py-20 px-6 text-center border-b-4 border-jtcOrange">
+        <div class="container mx-auto max-w-4xl">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-jtcSilver">JTC <span
+                    class="text-jtcOrange">SERVICES</span></h1>
+            <p class="text-lg md:text-xl leading-relaxed mb-8 text-gray-300">
+                Somos una empresa dedicada a brindar soluciones integrales en mantenimiento, obras y emergencias.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8 text-left bg-jtcGray/50 p-8 rounded-lg border border-jtcOrange/30">
+                <div>
+                    <h3 class="text-jtcOrange font-bold mb-4 text-xl">Nuestra Especialidad:</h3>
+                    <ul class="space-y-2">
+                        <li><i class="fas fa-bolt text-jtcOrange mr-2"></i> Electricidad domiciliaria e industrial</li>
+                        <li><i class="fas fa-faucet text-jtcOrange mr-2"></i> Plomería en general</li>
+                        <li><i class="fas fa-water text-jtcOrange mr-2"></i> Destapaciones</li>
+                        <li><i class="fas fa-hammer text-jtcOrange mr-2"></i> Herrería</li>
+                    </ul>
+                </div>
+                <div class="text-sm md:text-base leading-relaxed text-jtcSilver self-center">
+                    <p>Contamos con experiencia en el rubro y trabajamos con responsabilidad y compromiso, garantizando
+                        resultados eficientes y duraderos.</p>
+                    <p class="mt-4 italic">Nuestro objetivo es ofrecer un servicio confiable, adaptado a las necesidades
+                        de cada cliente.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="proyectos" class="py-20 container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-10 uppercase border-b-4 border-jtcOrange w-48 mx-auto">Proyectos
+        </h2>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <button onclick="filterProjects('all')"
+                class="project-tab active px-6 py-2 rounded-full border-2 border-jtcOrange font-bold transition">Todos</button>
+            <button onclick="filterProjects('electricidad')"
+                class="project-tab px-6 py-2 rounded-full border-2 border-jtcOrange font-bold transition">Electricidad</button>
+            <button onclick="filterProjects('plomeria')"
+                class="project-tab px-6 py-2 rounded-full border-2 border-jtcOrange font-bold transition">Plomería</button>
+            <button onclick="filterProjects('herreria')"
+                class="project-tab px-6 py-2 rounded-full border-2 border-jtcOrange font-bold transition">Herrería</button>
+        </div>
+
+        <div id="gallery" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="project-item electricidad bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="h-48 bg-gray-300 flex items-center justify-center text-gray-500">[Imagen Electricidad]</div>
+                <div class="p-4">
+                    <p class="font-bold">Tablero Industrial</p>
+                </div>
+            </div>
+            <div class="project-item plomeria bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="h-48 bg-gray-300 flex items-center justify-center text-gray-500">[Imagen Plomería]</div>
+                <div class="p-4">
+                    <p class="font-bold">Instalación de Termotanque</p>
+                </div>
+            </div>
+            <div class="project-item herreria bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="h-48 bg-gray-300 flex items-center justify-center text-gray-500">[Imagen Herrería]</div>
+                <div class="p-4">
+                    <p class="font-bold">Rejas de Seguridad</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-20 bg-jtcDark text-white">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12">
+
+            <div>
+                <h2 class="text-3xl font-bold mb-6 text-jtcOrange">CONTACTO</h2>
+                <p class="mb-8 text-jtcSilver">Quedamos a su disposición para realizar presupuestos con y sin materiales
+                    y asesoramiento personalizado.</p>
+
+                <div class="space-y-4">
+                    <a href="https://wa.me/TUNUMERO"
+                        class="flex items-center space-x-4 hover:text-jtcOrange transition">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                        <span>WhatsApp: +54 9 11 1234-5678</span>
+                    </a>
+                    <a href="mailto:info@jtcservices.com"
+                        class="flex items-center space-x-4 hover:text-jtcOrange transition">
+                        <i class="far fa-envelope text-2xl"></i>
+                        <span>info@jtcservices.com</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-4 hover:text-jtcOrange transition">
+                        <i class="fab fa-instagram text-2xl"></i>
+                        <span>@jtcservices</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-jtcGray p-8 rounded-lg shadow-xl border-t-4 border-jtcOrange">
+                <form action="#" class="space-y-4">
+                    <div>
+                        <label class="block text-sm mb-1 uppercase font-bold text-jtcOrange">Nombre</label>
+                        <input type="text"
+                            class="w-full p-2 bg-gray-800 border border-gray-600 rounded focus:border-jtcOrange outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm mb-1 uppercase font-bold text-jtcOrange">Consulta</label>
+                        <textarea rows="4"
+                            class="w-full p-2 bg-gray-800 border border-gray-600 rounded focus:border-jtcOrange outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm mb-1 uppercase font-bold text-jtcOrange">Adjuntar Fotos del
+                            Trabajo</label>
+                        <input type="file" multiple
+                            class="text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:bg-jtcOrange file:text-white hover:file:bg-orange-600 cursor-pointer">
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-jtcOrange hover:bg-orange-600 text-white font-bold py-3 rounded transition uppercase mt-4">
+                        Enviar Consulta
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-gray-500 py-6 text-center text-sm">
+        <p>&copy; 2026 JTC Services. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function filterProjects(category) {
+            const items = document.querySelectorAll('.project-item');
+            const tabs = document.querySelectorAll('.project-tab');
+
+            // Actualizar botones
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.innerText.toLowerCase() === category || (category === 'all' && tab.innerText === 'Todos')) {
+                    tab.classList.add('active');
+                }
+            });
+
+            // Filtrar items
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
