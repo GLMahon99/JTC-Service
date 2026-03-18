@@ -97,3 +97,116 @@
     text-shadow: none;
     transform: scale(1.25);
 }
+
+/* Modal Carrusel de Proyectos */
+.project-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-img {
+    max-height: 80vh;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(245, 130, 32, 0.4);
+    transition: opacity 0.3s ease;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10001;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.close-modal:hover {
+    color: #f58220;
+    transform: scale(1.1);
+}
+
+.modal-nav {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    user-select: none;
+    background-color: rgba(51, 51, 51, 0.6);
+    border: 2px solid transparent;
+    z-index: 10000;
+}
+
+.modal-nav:hover {
+    background-color: #f58220;
+    border-color: #fff;
+    box-shadow: 0 0 15px #f58220;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.modal-nav.prev {
+    left: -80px;
+}
+
+.modal-nav.next {
+    right: -80px;
+}
+
+@media (max-width: 768px) {
+    .modal-nav.prev { left: 10px; }
+    .modal-nav.next { right: 10px; }
+}
+
+.modal-caption {
+    margin-top: 25px;
+    text-align: center;
+    color: #f58220;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.project-item {
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(245, 130, 32, 0.2);
+    border-color: #f58220;
+}
