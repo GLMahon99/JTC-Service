@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JTC Services - Soluciones Integrales</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script>
@@ -15,7 +18,11 @@
                         jtcOrange: '#f58220',
                         jtcDark: '#1a1a1a',
                         jtcGray: '#333333',
-                        jtcSilver: '#e5e7eb'
+                        jtcSilver: '#f3f4f6'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif']
                     }
                 }
             }
@@ -39,135 +46,172 @@
         </div>
     </nav>
 
-    <header id="inicio" class="gradient-jtc text-white py-20 px-6 text-center border-b-4 border-jtcOrange">
-        <div class="container mx-auto max-w-4xl">
-            <h1 class="flex justify-center mb-6">
-                <img src="images/logo-jtcservice.png" alt="JTC Services" class="h-72 md:h-[28rem] object-contain max-w-full drop-shadow-2xl">
+    <header id="inicio" class="gradient-jtc text-white py-32 px-6 text-center border-b-4 border-jtcOrange relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+        <div class="container mx-auto max-w-4xl relative z-10 reveal">
+            <h1 class="flex justify-center mb-8">
+                <img src="images/logo-jtcservice.png" alt="JTC Services" class="h-64 md:h-[24rem] object-contain max-w-full drop-shadow-[0_0_50px_rgba(245,130,32,0.3)]">
             </h1>
-            <p class="text-lg md:text-xl leading-relaxed mb-8 text-gray-300">
-                Somos una empresa dedicada a brindar soluciones integrales en mantenimiento, obras y emergencias.
+            <p class="text-xl md:text-2xl font-light leading-relaxed mb-12 text-gray-300 font-sans tracking-wide">
+                Soluciones integrales de <span class="text-white font-bold">mantenimiento, obras y emergencias</span> con precisión industrial.
             </p>
-            <div class="grid md:grid-cols-2 gap-8 text-left bg-jtcGray/50 p-8 rounded-lg border border-jtcOrange/30">
-                <div>
-                    <h3 class="text-jtcOrange font-bold mb-4 text-xl">Nuestra Especialidad:</h3>
-                    <ul class="space-y-2">
-                        <li><i class="fas fa-bolt text-jtcOrange mr-2"></i> Electricidad domiciliaria e industrial</li>
-                        <li><i class="fas fa-faucet text-jtcOrange mr-2"></i> Plomería en general</li>
-                        <li><i class="fas fa-water text-jtcOrange mr-2"></i> Destapaciones</li>
-                        <li><i class="fas fa-hammer text-jtcOrange mr-2"></i> Herrería</li>
-                    </ul>
-                </div>
-                <div class="text-sm md:text-base leading-relaxed text-jtcSilver self-center">
-                    <p>Contamos con experiencia en el rubro y trabajamos con responsabilidad y compromiso, garantizando
-                        resultados eficientes y duraderos.</p>
-                    <p class="mt-4 italic">Nuestro objetivo es ofrecer un servicio confiable, adaptado a las necesidades
-                        de cada cliente.</p>
-                </div>
+            <div class="flex justify-center gap-6">
+                <a href="#contacto" class="bg-jtcOrange hover:bg-orange-600 text-white px-8 py-4 rounded-full font-bold uppercase tracking-wider transition-all hover:scale-105 shadow-lg shadow-orange-950/20">Solicitar Presupuesto</a>
+                <a href="#proyectos" class="border-2 border-white/20 hover:border-jtcOrange text-white px-8 py-4 rounded-full font-bold uppercase tracking-wider transition-all hover:bg-jtcOrange/10">Ver Proyectos</a>
             </div>
         </div>
     </header>
 
-    <section id="proyectos" class="py-20 container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-10 uppercase border-b-4 border-jtcOrange w-48 mx-auto">Proyectos
-        </h2>
-
-        <div class="flex flex-wrap justify-center gap-4 mb-12">
-            <button onclick="filterProjects('all')"
-                class="project-tab active px-6 py-2 rounded-full border-2 border-jtcOrange font-bold transition">Todos</button>
-            <button onclick="filterProjects('electricidad')"
-                class="project-tab px-6 py-2 rounded-full border-2 border-jtcOrange font-bold transition">Electricidad</button>
-            <button onclick="filterProjects('plomeria')"
-                class="project-tab px-6 py-2 rounded-full border-2 border-jtcOrange font-bold transition">Plomería</button>
-            <button onclick="filterProjects('herreria')"
-                class="project-tab px-6 py-2 rounded-full border-2 border-jtcOrange font-bold transition">Herrería</button>
-        </div>
-
-        <div id="gallery" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="project-item electricidad bg-white rounded-lg overflow-hidden shadow-md"
-                 onclick="openModal(['https://placehold.co/800x600/1a1a1a/f58220?text=Tablero+Industrial+1', 'https://placehold.co/800x600/1a1a1a/f58220?text=Tablero+Industrial+2'], 'Tablero Industrial')">
-                <img src="https://placehold.co/600x400/333/fff?text=Electricidad" alt="Tablero Industrial" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <p class="font-bold text-center">Tablero Industrial</p>
-                </div>
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-heading text-4xl md:text-5xl font-black text-jtcDark mb-4">NUESTRA ESPECIALIDAD</h2>
+                <div class="h-1.5 w-24 bg-jtcOrange mx-auto rounded-full"></div>
             </div>
-            <div class="project-item plomeria bg-white rounded-lg overflow-hidden shadow-md"
-                 onclick="openModal(['https://placehold.co/800x600/1a1a1a/f58220?text=Instalacion+Termotanque+1', 'https://placehold.co/800x600/1a1a1a/f58220?text=Instalacion+Termotanque+2', 'https://placehold.co/800x600/1a1a1a/f58220?text=Instalacion+Termotanque+3'], 'Instalación de Termotanque')">
-                <img src="https://placehold.co/600x400/333/fff?text=Plomeria" alt="Instalación de Termotanque" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <p class="font-bold text-center">Instalación de Termotanque</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Specialty Card 1 -->
+                <div class="feature-card p-10 bg-gray-50 rounded-3xl border border-gray-100 hover:border-jtcOrange/50 transition-all duration-500 reveal">
+                    <div class="w-16 h-16 bg-jtcOrange/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-bolt text-3xl text-jtcOrange"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Electricidad</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Instalaciones domiciliarias e industriales con normas de seguridad vigentes.</p>
                 </div>
-            </div>
-            <div class="project-item herreria bg-white rounded-lg overflow-hidden shadow-md"
-                 onclick="openModal(['https://placehold.co/800x600/1a1a1a/f58220?text=Rejas+1', 'https://placehold.co/800x600/1a1a1a/f58220?text=Rejas+2'], 'Rejas de Seguridad')">
-                <img src="https://placehold.co/600x400/333/fff?text=Herreria" alt="Rejas de Seguridad" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <p class="font-bold text-center">Rejas de Seguridad</p>
+                <!-- Specialty Card 2 -->
+                <div class="feature-card p-10 bg-gray-50 rounded-3xl border border-gray-100 hover:border-jtcOrange/50 transition-all duration-500 reveal">
+                    <div class="w-16 h-16 bg-jtcOrange/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-faucet text-3xl text-jtcOrange"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Plomería</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Reparaciones, instalaciones y mantenimiento preventivo de redes de agua.</p>
+                </div>
+                <!-- Specialty Card 3 -->
+                <div class="feature-card p-10 bg-gray-50 rounded-3xl border border-gray-100 hover:border-jtcOrange/50 transition-all duration-500 reveal">
+                    <div class="w-16 h-16 bg-jtcOrange/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-water text-3xl text-jtcOrange"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Destapaciones</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Servicio de emergencias 24hs con maquinaria de última generación.</p>
+                </div>
+                <!-- Specialty Card 4 -->
+                <div class="feature-card p-10 bg-gray-50 rounded-3xl border border-gray-100 hover:border-jtcOrange/50 transition-all duration-500 reveal">
+                    <div class="w-16 h-16 bg-jtcOrange/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-hammer text-3xl text-jtcOrange"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Herrería</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Trabajos a medida, rejas, portones y estructuras metálicas reforzadas.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contacto" class="py-20 bg-jtcDark text-white">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12">
+    <section id="proyectos" class="py-20 px-6 bg-metal">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-10 uppercase border-b-4 border-jtcOrange w-48 mx-auto">Proyectos
+            </h2>
 
-            <div>
-                <h2 class="text-3xl font-bold mb-6 text-jtcOrange">CONTACTO</h2>
-                <p class="mb-8 text-jtcSilver">Quedamos a su disposición para realizar presupuestos con y sin materiales
-                    y asesoramiento personalizado.</p>
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button onclick="filterProjects('all')"
+                    class="project-tab active px-6 py-2 rounded-full border-2 border-jtcOrange font-bold transition">Todos</button>
+                <button onclick="filterProjects('electricidad')"
+                    class="project-tab px-6 py-2 rounded-full border-2 border-jtcOrange font-bold transition">Electricidad</button>
+                <button onclick="filterProjects('plomeria')"
+                    class="project-tab px-6 py-2 rounded-full border-2 border-jtcOrange font-bold transition">Plomería</button>
+                <button onclick="filterProjects('herreria')"
+                    class="project-tab px-6 py-2 rounded-full border-2 border-jtcOrange font-bold transition">Herrería</button>
+            </div>
 
-                <div class="space-y-4">
-                    <a href="https://wa.me/TUNUMERO"
-                        class="flex items-center space-x-4 hover:text-jtcOrange transition">
-                        <i class="fab fa-whatsapp text-2xl"></i>
-                        <span>WhatsApp: +54 9 11 1234-5678</span>
-                    </a>
-                    <a href="mailto:info@jtcservices.com"
-                        class="flex items-center space-x-4 hover:text-jtcOrange transition">
-                        <i class="far fa-envelope text-2xl"></i>
-                        <span>info@jtcservices.com</span>
-                    </a>
-                    <a href="#" class="flex items-center space-x-4 hover:text-jtcOrange transition">
-                        <i class="fab fa-instagram text-2xl"></i>
-                        <span>@jtcservices</span>
-                    </a>
+            <div id="gallery" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="project-item electricidad bg-white rounded-lg overflow-hidden shadow-md"
+                     onclick="openModal(['https://placehold.co/800x600/1a1a1a/f58220?text=Tablero+Industrial+1', 'https://placehold.co/800x600/1a1a1a/f58220?text=Tablero+Industrial+2'], 'Tablero Industrial')">
+                    <img src="https://placehold.co/600x400/333/fff?text=Electricidad" alt="Tablero Industrial" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <p class="font-bold text-center">Tablero Industrial</p>
+                    </div>
+                </div>
+                <div class="project-item plomeria bg-white rounded-lg overflow-hidden shadow-md"
+                     onclick="openModal(['https://placehold.co/800x600/1a1a1a/f58220?text=Instalacion+Termotanque+1', 'https://placehold.co/800x600/1a1a1a/f58220?text=Instalacion+Termotanque+2', 'https://placehold.co/800x600/1a1a1a/f58220?text=Instalacion+Termotanque+3'], 'Instalación de Termotanque')">
+                    <img src="https://placehold.co/600x400/333/fff?text=Plomeria" alt="Instalación de Termotanque" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <p class="font-bold text-center">Instalación de Termotanque</p>
+                    </div>
+                </div>
+                <div class="project-item herreria bg-white rounded-lg overflow-hidden shadow-md"
+                     onclick="openModal(['https://placehold.co/800x600/1a1a1a/f58220?text=Rejas+1', 'https://placehold.co/800x600/1a1a1a/f58220?text=Rejas+2'], 'Rejas de Seguridad')">
+                    <img src="https://placehold.co/600x400/333/fff?text=Herreria" alt="Rejas de Seguridad" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <p class="font-bold text-center">Rejas de Seguridad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-32 bg-jtcDark text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-jtcOrange to-transparent"></div>
+        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+
+            <div class="reveal">
+                <h2 class="font-heading text-5xl font-black mb-8 text-white tracking-tighter">¿TENÉS UN <span class="text-jtcOrange">PROYECTO?</span></h2>
+                <p class="mb-12 text-gray-400 text-lg leading-relaxed max-w-lg font-light">
+                    Transformamos tus ideas en realidades sólidas. Contactanos para obtener asesoramiento técnico personalizado y presupuestos sin compromiso.
+                </p>
+
+                <div class="space-y-8">
+                    <div class="flex items-center space-x-6 group">
+                        <div class="w-14 h-14 rounded-full bg-jtcGray flex items-center justify-center group-hover:bg-jtcOrange transition-colors">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">WhatsApp</p>
+                            <a href="https://wa.me/5491112345678" class="text-xl font-bold hover:text-jtcOrange transition-colors">+54 9 11 1234-5678</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-6 group">
+                        <div class="w-14 h-14 rounded-full bg-jtcGray flex items-center justify-center group-hover:bg-jtcOrange transition-colors">
+                            <i class="far fa-envelope text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Email</p>
+                            <a href="mailto:info@jtcservices.com" class="text-xl font-bold hover:text-jtcOrange transition-colors">info@jtcservices.com</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="bg-jtcGray p-8 rounded-lg shadow-xl border-t-4 border-jtcOrange">
-                <form action="#" class="space-y-4">
-                    <div>
-                        <label class="block text-sm mb-1 uppercase font-bold text-jtcOrange">Nombre</label>
-                        <input type="text"
-                            class="w-full p-2 bg-gray-800 border border-gray-600 rounded focus:border-jtcOrange outline-none" required>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="reveal">
+                <div class="bg-white/5 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white/10 shadow-2xl relative">
+                    <div class="absolute -top-4 -right-4 bg-jtcOrange text-jtcDark font-black px-6 py-2 rounded-xl rotate-3 shadow-lg">EN CONTACTO</div>
+                    <form action="#" class="space-y-6">
                         <div>
-                            <label class="block text-sm mb-1 uppercase font-bold text-jtcOrange">Teléfono</label>
-                            <input type="tel"
-                                class="w-full p-2 bg-gray-800 border border-gray-600 rounded focus:border-jtcOrange outline-none" required>
+                            <label class="block text-xs mb-2 uppercase font-black text-jtcOrange tracking-widest">Nombre Completo</label>
+                            <input type="text"
+                                class="w-full p-4 bg-jtcDark/50 border border-white/10 rounded-2xl focus:border-jtcOrange outline-none transition-all text-white placeholder-gray-600" placeholder="Ej: Juan Pérez" required>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs mb-2 uppercase font-black text-jtcOrange tracking-widest">Teléfono</label>
+                                <input type="tel"
+                                    class="w-full p-4 bg-jtcDark/50 border border-white/10 rounded-2xl focus:border-jtcOrange outline-none transition-all text-white placeholder-gray-600" placeholder="+54 9..." required>
+                            </div>
+                            <div>
+                                <label class="block text-xs mb-2 uppercase font-black text-jtcOrange tracking-widest">Email</label>
+                                <input type="email"
+                                    class="w-full p-4 bg-jtcDark/50 border border-white/10 rounded-2xl focus:border-jtcOrange outline-none transition-all text-white placeholder-gray-600" placeholder="juan@ejemplo.com" required>
+                            </div>
                         </div>
                         <div>
-                            <label class="block text-sm mb-1 uppercase font-bold text-jtcOrange">Email</label>
-                            <input type="email"
-                                class="w-full p-2 bg-gray-800 border border-gray-600 rounded focus:border-jtcOrange outline-none" required>
+                            <label class="block text-xs mb-2 uppercase font-black text-jtcOrange tracking-widest">¿En qué podemos ayudarte?</label>
+                            <textarea rows="4"
+                                class="w-full p-4 bg-jtcDark/50 border border-white/10 rounded-2xl focus:border-jtcOrange outline-none transition-all text-white placeholder-gray-600" placeholder="Contanos brevemente tu necesidad..."></textarea>
                         </div>
-                    </div>
-                    <div>
-                        <label class="block text-sm mb-1 uppercase font-bold text-jtcOrange">Consulta</label>
-                        <textarea rows="4"
-                            class="w-full p-2 bg-gray-800 border border-gray-600 rounded focus:border-jtcOrange outline-none"></textarea>
-                    </div>
-                    <div>
-                        <label class="block text-sm mb-1 uppercase font-bold text-jtcOrange">Adjuntar Fotos del
-                            Trabajo</label>
-                        <input type="file" multiple
-                            class="text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:bg-jtcOrange file:text-white hover:file:bg-orange-600 cursor-pointer">
-                    </div>
-                    <button type="submit"
-                        class="w-full bg-jtcOrange hover:bg-orange-600 text-white font-bold py-3 rounded transition uppercase mt-4">
-                        Enviar Consulta
-                    </button>
-                </form>
+                        <button type="submit"
+                            class="w-full bg-jtcOrange hover:bg-orange-600 text-white font-black py-5 rounded-2xl transition-all uppercase tracking-widest mt-4 shadow-lg shadow-orange-950/40 hover:scale-[1.02] active:scale-95">
+                            Enviar Consulta Directa
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -264,6 +308,21 @@
                 }
             });
         }
+
+        // Animación Reveal al hacer scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 
